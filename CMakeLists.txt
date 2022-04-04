@@ -21,7 +21,11 @@ enable_testing()
 
 add_executable(${EXECUTABLE_NAME}
         src/main.cpp
-        src/camera/Camera.cpp)
+        src/camera/Camera.cpp
+        src/frame/Frame.cpp
+        src/geometry/Geometry.cpp
+        src/input/Input.cpp
+        src/output/Output.cpp)
 
 target_include_directories(${EXECUTABLE_NAME} PRIVATE external)
 
