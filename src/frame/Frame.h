@@ -10,13 +10,14 @@
 class Frame {
     int width;
     int height;
-    linalg::vec<float,3> pixels[];
+    int* pixels;
 
     int xyToIndex(int x, int y);
 public:
     Frame(int width, int height);
-    void setPixel(int x, int y, linalg::vec<float,3> rgb);
-    linalg::vec<float,3> getPixel(int x, int y);
+    ~Frame();
+    void setPixel(int x, int y, linalg::vec<int,3> rgb);
+    linalg::vec<int, 3> getPixel(int x, int y);
     int getWidth() const;
     int getHeight() const;
 };
