@@ -5,6 +5,7 @@
 #ifndef BASICRASTERIZER_CAMERA_H
 #define BASICRASTERIZER_CAMERA_H
 
+#include <linalg.h>
 
 class Camera {
 

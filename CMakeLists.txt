@@ -19,7 +19,9 @@ enable_testing()
 
 add_executable(BasicRasterizer
         src/main.cpp
-        src/Camera.cpp)
+        src/camera/Camera.cpp)
+
+target_include_directories(BasicRasterizer PRIVATE external)
 
 
 
