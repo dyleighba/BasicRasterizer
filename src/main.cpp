@@ -1,8 +1,10 @@
 //
 // Created by dylan on 6/3/22.
 //
-#include <gtest/gtest.h>
+#include <output/OutputSFML.h>
 
 int main() {
-    return 0;
+    sf::Clock clock;
+    OutputSFML output = OutputSFML("Test");
+    while (clock.getElapsedTime().asSeconds() < 10);
 }
