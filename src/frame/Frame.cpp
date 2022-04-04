@@ -24,4 +24,14 @@ linalg::vec<float, 3> Frame::getPixel(int x, int y) {
     return pixels[index];
 }
 
+int Frame::getWidth() const {
+    return width;
+}
+
+int Frame::getHeight() const {
+    return height;
+}
+
+
+
 

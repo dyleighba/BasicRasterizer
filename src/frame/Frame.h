@@ -17,6 +17,8 @@ public:
     Frame(int width, int height);
     void setPixel(int x, int y, linalg::vec<float,3> rgb);
     linalg::vec<float,3> getPixel(int x, int y);
+    int getWidth() const;
+    int getHeight() const;
 };
 
 
