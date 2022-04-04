@@ -17,17 +17,22 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 enable_testing()
 
+set(HEADERS
+        src/output/Output.h)
 
-
-add_executable(${EXECUTABLE_NAME}
+set(SOURCES
         src/main.cpp
         src/camera/Camera.cpp
         src/frame/Frame.cpp
         src/geometry/Geometry.cpp
         src/input/Input.cpp
-        src/output/Output.cpp)
+        src/output/OutputSFML.cpp)
 
+add_executable(${EXECUTABLE_NAME} ${HEADERS} ${SOURCES})
+
+target_include_directories(${EXECUTABLE_NAME} PRIVATE src)
 target_include_directories(${EXECUTABLE_NAME} PRIVATE external)
+
 
 
 
@@ -36,17 +41,22 @@ target_link_libraries(
         gtest_main
 )
 include(GoogleTest)
-gtest_discover_tests(${EXECUTABLE_NAME})
+gtest_discover_tests(${EXECUTABLE_NAME} PROPERTIES TIMEOUT 600)
 
 
 
-# Detect and add SFML
-set(SFML_DIR external/SFML/lib/cmake/SFML)
-set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})
-#Find any version 2.X of SFML
-#See the FindSFML.cmake file for additional details and instructions
-find_package(SFML 2 REQUIRED network audio graphics window system)
-if(SFML_FOUND)
-    include_directories(${SFML_INCLUDE_DIR})
-    target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})
-endif()
+if (WIN32)
+    set(SFML_DIR "${CMAKE_CURRENT_SOURCE_DIR}/SFML-2.5.1/lib/cmake/SFML")
+endif ()
+
+find_package(SFML 2 COMPONENTS graphics REQUIRED)
+target_link_libraries(BasicRasterizer sfml-graphics)
+
+if (WIN32)
+    add_custom_command(TARGET BasicRasterizer POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_directory
+            "${CMAKE_CURRENT_SOURCE_DIR}/SFML/bin"
+            $<TARGET_FILE_DIR:BasicRasterizer>
+            COMMENT "Copying SFML dlls..."
+            )
+endif ()
