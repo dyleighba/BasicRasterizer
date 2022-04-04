@@ -55,7 +55,7 @@ target_link_libraries(BasicRasterizer sfml-graphics)
 if (WIN32)
     add_custom_command(TARGET BasicRasterizer POST_BUILD
             COMMAND ${CMAKE_COMMAND} -E copy_directory
-            "${CMAKE_CURRENT_SOURCE_DIR}/SFML/bin"
+            "${CMAKE_CURRENT_SOURCE_DIR}/SFML-2.5.1/bin"
             $<TARGET_FILE_DIR:BasicRasterizer>
             COMMENT "Copying SFML dlls..."
             )
