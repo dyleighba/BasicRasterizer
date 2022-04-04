@@ -14,6 +14,7 @@ public:
     OutputSFML(std::string windowName);
     ~OutputSFML();
     void output(Frame frame);
+    void poll();
 };
 
 
