@@ -15,7 +15,7 @@ int Frame::xyToIndexZ(int x, int y) const {
 Frame::Frame(int width, int height) {
     this->width = width;
     this->height = height;
-    pixels = new int[xyToIndex(width, height)];
+    pixels = new uint8_t[xyToIndex(width, height)];
     zBuffer = new float[xyToIndexZ(width, height)];
 }
 

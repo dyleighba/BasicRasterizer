@@ -10,7 +10,7 @@
 class Frame {
     int width;
     int height;
-    int *pixels;
+    uint8_t *pixels;
     float *zBuffer;
 
     [[nodiscard]] int xyToIndex(int x, int y) const;
