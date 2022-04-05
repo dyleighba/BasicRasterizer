@@ -18,11 +18,14 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 set(HEADERS
+        src/draw/Colour.h
+        src/draw/Triangle.h
         src/output/Output.h)
 
 set(SOURCES
         src/main.cpp
         src/camera/Camera.cpp
+        src/draw/DrawUtility.cpp
         src/frame/Frame.cpp
         src/geometry/Geometry.cpp
         src/input/Input.cpp
