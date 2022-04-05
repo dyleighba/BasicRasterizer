@@ -19,6 +19,7 @@ enable_testing()
 
 set(HEADERS
         src/draw/Colour.h
+        src/draw/Rect.h
         src/draw/Triangle.h
         src/output/Output.h)
 
