@@ -23,11 +23,11 @@ void OutputSFML::output(Frame frame) {
     // translate from frame to sfml
     for (int x = 0; x < frame.getWidth(); x++) {
         for (int y = 0; y < frame.getHeight(); y++) {
-            linalg::vec<int,3> rgb = frame.getPixel(x, y);
+            Colour colour = frame.getPixel(x, y);
             int indexOffset = (x + y * frame.getWidth()) * channelCount;
-            pixels[indexOffset + 0] = rgb[0];
-            pixels[indexOffset + 1] = rgb[1];
-            pixels[indexOffset + 2] = rgb[2];
+            pixels[indexOffset + 0] = colour.r;
+            pixels[indexOffset + 1] = colour.g;
+            pixels[indexOffset + 2] = colour.b;
             pixels[indexOffset + 3] = fullOpacity;
         }
     }

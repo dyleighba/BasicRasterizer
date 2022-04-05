@@ -6,6 +6,7 @@
 #define BASICRASTERIZER_FRAME_H
 
 #include <linalg.h>
+#include <draw/Colour.h>
 
 class Frame {
     int width;
@@ -18,8 +19,8 @@ class Frame {
 public:
     Frame(int width, int height);
     ~Frame();
-    void setPixel(int x, int y, linalg::vec<int,3> rgb);
-    linalg::vec<int, 3> getPixel(int x, int y);
+    void setPixel(int x, int y, Colour colour);
+    Colour getPixel(int x, int y);
     float getZValue(int x, int y);
     void setZValue(int x, int y, float zValue);
     [[nodiscard]] int getWidth() const;

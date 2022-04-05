@@ -24,16 +24,16 @@ Frame::~Frame() {
     delete(zBuffer);
 }
 
-void Frame::setPixel(int x, int y, linalg::vec<int, 3> rgb) {
+void Frame::setPixel(int x, int y, Colour colour) {
     int index = xyToIndex(x, y);
-    pixels[index] = rgb[0];
-    pixels[index+1] = rgb[1];
-    pixels[index+2] = rgb[2];
+    pixels[index] = colour.r;
+    pixels[index+1] = colour.g;
+    pixels[index+2] = colour.b;
 }
 
-linalg::vec<int, 3> Frame::getPixel(int x, int y) {
+Colour Frame::getPixel(int x, int y) {
     int index = xyToIndex(x, y);
-    return linalg::vec<int, 3>{
+    return Colour{
         pixels[index],
         pixels[index+1],
         pixels[index+2]

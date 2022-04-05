@@ -25,7 +25,19 @@ void DrawUtility::drawTriangle(Frame &frame, Triangle triangle) {
     for (int x = 0; x < frame.getWidth(); ++x) {
         for (int y = 0; y < frame.getHeight(); ++y) {
             if (pointInsideTriangle(triangle, float2{(float)x, (float)y})) {
-                frame.setPixel(x, y, linalg::vec<int,3>{0,0,255});
+                float2 point = {static_cast<float>(x), static_cast<float>(y)};
+                float distanceA = linalg::distance(triangle.a, point);
+                float distanceB = linalg::distance(triangle.b, point);
+                float distanceC = linalg::distance(triangle.c, point);
+                float total = distanceA + distanceB + distanceC;
+                distanceA = distanceA / total;
+                distanceB = distanceB / total;
+                distanceC = distanceC / total;
+                Colour colour = {
+                        static_cast<uint8_t>((triangle.aColour.r * distanceA) + (triangle.bColour.r * distanceB) + (triangle.cColour.r * distanceC)),
+                        static_cast<uint8_t>((triangle.aColour.g * distanceA) + (triangle.bColour.g * distanceB) + (triangle.cColour.g * distanceC)),
+                        static_cast<uint8_t>((triangle.aColour.b * distanceA) + (triangle.bColour.b * distanceB) + (triangle.cColour.b * distanceC))};
+                frame.setPixel(x, y, colour);
             }
         }
     }
