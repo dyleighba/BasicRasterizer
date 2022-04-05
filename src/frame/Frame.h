@@ -20,8 +20,8 @@ public:
     ~Frame();
     void setPixel(int x, int y, linalg::vec<int,3> rgb);
     linalg::vec<int, 3> getPixel(int x, int y);
-    int getZValue(int x, int y);
-    void setZValue(int x, int y, int zValue);
+    float getZValue(int x, int y);
+    void setZValue(int x, int y, float zValue);
     [[nodiscard]] int getWidth() const;
     [[nodiscard]] int getHeight() const;
 };

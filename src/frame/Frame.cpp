@@ -40,12 +40,12 @@ linalg::vec<int, 3> Frame::getPixel(int x, int y) {
     };
 }
 
-void Frame::setZValue(int x, int y, int zValue) {
+void Frame::setZValue(int x, int y, float zValue) {
     int index = xyToIndexZ(x, y);
     zBuffer[index] = zValue;
 }
 
-int Frame::getZValue(int x, int y) {
+float Frame::getZValue(int x, int y) {
     int index = xyToIndexZ(x, y);
     return zBuffer[index];
 }
