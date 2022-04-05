@@ -22,8 +22,15 @@ bool DrawUtility::pointInsideTriangle(Triangle triangle, float2 point)
 }
 
 void DrawUtility::drawTriangle(Frame &frame, Triangle triangle) {
-    for (int x = 0; x < frame.getWidth(); ++x) {
-        for (int y = 0; y < frame.getHeight(); ++y) {
+    float2 minVec = linalg::max(
+            linalg::min(linalg::min(triangle.a, triangle.b), triangle.c),
+            float2{0,0});
+    float2 maxVec = linalg::min(
+            linalg::max(linalg::max(triangle.a, triangle.b), triangle.c),
+            float2{static_cast<float>(frame.getWidth()),static_cast<float>(frame.getHeight())});
+
+    for (int x = minVec.x; x < maxVec.x; ++x) {
+        for (int y = minVec.y; y < maxVec.y; ++y) {
             if (pointInsideTriangle(triangle, float2{(float)x, (float)y})) {
                 float2 point = {static_cast<float>(x), static_cast<float>(y)};
                 float distanceA = linalg::distance(triangle.a, point);
