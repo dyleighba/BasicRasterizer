@@ -21,7 +21,6 @@ set(HEADERS
         src/draw/Colour.h
         src/draw/Rect.h
         src/draw/Triangle.h
-        src/geometry/Face.h
         src/geometry/Triangle3D.h
         src/input/Input.h
         src/output/Output.h)
