@@ -5,8 +5,6 @@
 #ifndef BASICRASTERIZER_TRIANGLE_H
 #define BASICRASTERIZER_TRIANGLE_H
 
-#include <draw/Colour.h>
-
 #include <linalg.h>
 
 using linalg::aliases::float2;

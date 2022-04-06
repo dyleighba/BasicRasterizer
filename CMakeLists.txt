@@ -21,6 +21,8 @@ set(HEADERS
         src/draw/Colour.h
         src/draw/Rect.h
         src/draw/Triangle.h
+        src/draw/Triangle3D.h
+        src/input/Input.h
         src/output/Output.h)
 
 set(SOURCES
@@ -29,7 +31,7 @@ set(SOURCES
         src/draw/DrawUtility.cpp
         src/frame/Frame.cpp
         src/geometry/Geometry.cpp
-        src/input/Input.cpp
+        src/input/InputPrimitive.cpp
         src/output/OutputSFML.cpp)
 
 add_executable(${EXECUTABLE_NAME} ${HEADERS} ${SOURCES})
