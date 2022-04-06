@@ -17,7 +17,7 @@ class Frame {
     [[nodiscard]] int xyToIndex(int x, int y) const;
     [[nodiscard]] int xyToIndexZ(int x, int y) const;
 public:
-    Frame(int width, int height);
+    explicit Frame(int width, int height);
     ~Frame();
     void setPixel(int x, int y, Colour colour);
     Colour getPixel(int x, int y);
