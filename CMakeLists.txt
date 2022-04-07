@@ -18,6 +18,7 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 set(HEADERS
+        src/camera/CameraAttributes.h
         src/draw/Colour.h
         src/draw/Rect.h
         src/draw/Triangle.h
