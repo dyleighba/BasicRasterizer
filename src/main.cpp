@@ -15,7 +15,7 @@ int main() {
     Triangle triangle {float2{500, 500},
                        float2{500, 600},
                        float2{600, 600}};
-    DrawUtility::drawTriangle(frame, triangle);
+    DrawUtility::drawTriangle(frame, triangle, Colour{255,0,0});
     output.output(frame);
     output.poll();
 }
